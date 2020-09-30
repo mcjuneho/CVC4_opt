@@ -5608,6 +5608,46 @@ SmtEngine* Solver::getSmtEngine(void) const { return d_smtEngine.get(); }
 Options& Solver::getOptions(void) { return d_smtEngine->getOptions(); }
 
 /* -------------------------------------------------------------------------- */
+/* Optimization                                                               */
+/* -------------------------------------------------------------------------- */
+/**
+ * Calls minimization function for solver on objective
+ */
+void Solver::minimize(Term objective){}
+
+/**
+ * Calls maximization funtion for solver on objective
+ */
+void Solver::maximize(Term objective){}
+
+/**
+ * Gets the lower bound on objective after solver:
+ *  finishes, hits resource limit, or gets intterupted
+ */
+Term Solver::get_lower(void){}
+
+/**
+ * Gets the upper bound on objective after solver:
+ *  finishes, hits resource limit, or gets intterupted
+ */
+Term solver::get_upper(void){}
+
+/**
+ * Sets the resource limit on our solver to prevent infinite recursion
+ */
+void Solver::set_limit(int limit){}
+
+/**
+ * interrupts solver, allowing for approximation of objective
+ */
+void Solver::interrupt(void){}
+
+/**
+ * Gets statistics on the current optimization state
+ */
+Term Solver::get_statistics(void){}
+
+/* -------------------------------------------------------------------------- */
 /* Conversions                                                                */
 /* -------------------------------------------------------------------------- */
 

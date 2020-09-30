@@ -3301,6 +3301,40 @@ class CVC4_PUBLIC Solver
   // the driver level. !!!
   Options& getOptions(void);
 
+  void minimize(Term objective) const;
+
+  /**
+   * Calls maximization funtion for solver on objective
+   */
+  void maximize(Term objective) const;
+
+  /**
+   * Gets the lower bound on objective after solver:
+   *  finishes, hits resource limit, or gets intterupted
+   */
+  Term get_lower(void) const;
+
+  /**
+   * Gets the upper bound on objective after solver:
+   *  finishes, hits resource limit, or gets intterupted
+   */
+  Term get_upper(void){} const;
+
+  /**
+   * Sets the resource limit on our solver to prevent infinite recursion
+   */
+  void set_limit(int limit) const;
+
+  /**
+   * interrupts solver, allowing for approximation of objective
+   */
+  void interrupt(void) const;
+
+  /**
+   * Gets statistics on the current optimization state
+   */
+  Term get_statistics(void) const;
+
  private:
   /* Helper to convert a vector of internal types to sorts. */
   std::vector<Type> sortVectorToTypes(const std::vector<Sort>& vector) const;
